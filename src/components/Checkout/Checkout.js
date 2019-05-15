@@ -14,11 +14,25 @@ class Checkout extends Component {
         this.props.history.push('/');
     }
 
+    removeProduct = (productIndex) => {
+        return (event) => {
+            this.props.dispatch({
+                type: 'REMOVE_FROM_CART',
+                payload: productIndex,
+            })
+        };
+    }
+
     render() {
         let totalPrice = 0;
         const htmlCheckoutItems = this.props.reduxState.checkoutReducer.map((item, index) => {
             totalPrice += item.price;
-            return <li key={index}>{item.name}: {item.price}</li>
+            return (
+                <li key={index}>
+                    {item.name}: {item.price}&nbsp;
+                    <button onClick={this.removeProduct(index)}>Remove</button>
+                </li>
+            );
         });
 
         return (

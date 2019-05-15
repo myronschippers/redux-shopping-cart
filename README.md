@@ -24,6 +24,6 @@ Redux has been added to this project, but the project isn't really using redux. 
 
 - When the **Checkout** button is clicked on the **Checkout** page, in addition to clearing the cart, navigate the user back to the **Product** page
 - [x] In `ProductForm`, using currying to consolidate `handlePriceChange` and `handleNameChange` into a single function
-- [ ] Show the total cost on the Checkout page
+- [x] Show the total cost on the Checkout page
 - [ ] Ability to remove from cart
 - [ ] Ability to remove a product
