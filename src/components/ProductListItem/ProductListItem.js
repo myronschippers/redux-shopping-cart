@@ -15,10 +15,21 @@ class ProductListItem extends Component {
         });
     }
 
+    removeProduct = (productIndex) => {
+        return (event) => {
+            this.props.dispatch({
+                type: 'REMOVE_PRODUCT',
+                payload: productIndex,
+            })
+        };
+    }
+
     render() {
         return (
             <li>
-                {this.props.product.name}: {this.props.product.price} <button onClick={this.addProductToCart}>Add to Cart</button>
+                {this.props.product.name}: {this.props.product.price}&nbsp;
+                <button onClick={this.addProductToCart}>Add to Cart</button>&nbsp;
+                <button onClick={this.removeProduct(this.props.productIndex)}>Remove Product</button>
             </li>
         )
     }

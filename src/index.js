@@ -19,6 +19,10 @@ const products = [
 const productReducer = (state = products, action) => {
     if (action.type === 'ADD_NEW_PRODUCT') {
         return [...state, action.payload];
+    } else if (action.type === 'REMOVE_PRODUCT') {
+        return state.filter((product, index) => {
+            return index !== action.payload;
+        });
     }
     return state;
 };
