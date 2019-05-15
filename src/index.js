@@ -4,8 +4,9 @@ import './index.css';
 import App from './components/App/App';
 
 // Redux
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
+import logger from 'redux-logger';
 
 // Default set of products
 const products = [
@@ -34,7 +35,8 @@ const storeInstance = createStore(
     combineReducers({
         productReducer,
         checkoutReducer
-    }),    
+    }),
+    applyMiddleware(logger)
 );
 
 // Wrap our App in a Provider, this makes Redux available in
