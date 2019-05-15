@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import ProductForm from '../ProductForm/ProductForm';
 import ProductList from '../ProductList/ProductList';
 
+// Redux dependencies
+import { connect } from 'react-redux';
+import mapReduxStateToProps from '../../modules/mapReduxStateToProps';
+
 class Products extends Component {
     // TODO: Use the productReducer instead of state
     state = {
@@ -31,4 +35,4 @@ class Products extends Component {
     }
 }
 
-export default Products;
+export default connect(mapReduxStateToProps)(Products);
