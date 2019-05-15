@@ -31,6 +31,8 @@ const checkoutReducer = (state = [], action) => {
             ...state,
             action.payload,
         ];
+    } else if (action.type === 'CHECKOUT') {
+        return [];
     }
     return state;
 };
