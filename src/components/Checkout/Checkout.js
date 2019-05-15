@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapReduxStateToProps from '../../modules/mapReduxStateToProps';
+import { withRouter } from 'react-router-dom';
 
 class Checkout extends Component {
 
@@ -8,7 +9,9 @@ class Checkout extends Component {
         // TODO: Clear the cart and navigate to the product page
         this.props.dispatch({
             type: 'CHECKOUT',
-        })
+        });
+        // navigate to the Products page after checkout
+        this.props.history.push('/');
     }
 
     render() {
@@ -29,4 +32,4 @@ class Checkout extends Component {
     }
 }
 
-export default connect(mapReduxStateToProps)(Checkout);
+export default withRouter(connect(mapReduxStateToProps)(Checkout));
