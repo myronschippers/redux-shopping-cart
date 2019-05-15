@@ -38,8 +38,9 @@ const checkoutReducer = (state = [], action) => {
     } else if (action.type === 'CHECKOUT') {
         return [];
     } else if (action.type === 'REMOVE_FROM_CART') {
+        const removeIndex = parseInt(action.payload);
         return state.filter((item, index) => {
-            return index !== action.payload;
+            return index !== removeIndex;
         });
     }
     return state;
