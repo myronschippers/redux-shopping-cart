@@ -15,7 +15,9 @@ class Checkout extends Component {
     }
 
     render() {
+        let totalPrice = 0;
         const htmlCheckoutItems = this.props.reduxState.checkoutReducer.map((item, index) => {
+            totalPrice += item.price;
             return <li key={index}>{item.name}: {item.price}</li>
         });
 
@@ -26,6 +28,7 @@ class Checkout extends Component {
                 <ul>
                     {htmlCheckoutItems}
                 </ul>
+                <p>Total Price: {totalPrice}</p>
                 <button onClick={this.handleCheckout}>Checkout</button>
             </div>
         )
