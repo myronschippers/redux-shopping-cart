@@ -14,7 +14,7 @@ Good news! A lot is already working here! After running `npm start`, you should 
 Redux has been added to this project, but the project isn't really using redux. Follow these steps to integrate redux into the project.
 
 - [x] Add the Redux Logger (If covered in lecture)
-- [ ] Update the **ProductList** to display from the `productReducer`
+- [x] Update the **ProductList** to display from the `productReducer`
 - [ ] Update the **ProductForm** to dispatch to the `productReducer`
 - [ ] When **Add to Cart** is clicked on, dispatch that product to the `checkoutReducer`
 - [ ] Display products in the cart on the **Checkout** page
