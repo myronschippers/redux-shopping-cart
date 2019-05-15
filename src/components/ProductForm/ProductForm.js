@@ -10,22 +10,37 @@ class ProductForm extends Component {
         productToAdd: {name: '', price: 0}
     }
 
-    handlePriceChange = (event) => {
-        this.setState({
-            productToAdd: {
-                ...this.state.productToAdd,
-                price: event.target.value
-            },
-        });
-    }
+    // handlePriceChange = (event) => {
+    //     this.setState({
+    //         productToAdd: {
+    //             ...this.state.productToAdd,
+    //             price: event.target.value
+    //         },
+    //     });
+    // }
 
-    handleNameChange = (event) => {
-        this.setState({
-            productToAdd: {
-                ...this.state.productToAdd,
-                name: event.target.value
-            },
-        });
+    // handleNameChange = (event) => {
+    //     this.setState({
+    //         productToAdd: {
+    //             ...this.state.productToAdd,
+    //             name: event.target.value
+    //         },
+    //     });
+    // }
+
+    /**
+     * Event handler that ustilizes currying to take in unique information
+     * to process an input field.
+     */
+    handleFieldChange = (fieldName) => {
+        return (event) => {
+            this.setState({
+                productToAdd: {
+                    ...this.state.productToAdd,
+                    [fieldName]: event.target.value
+                },
+            });
+        }
     }
 
     addProduct = (event) => {
@@ -41,8 +56,8 @@ class ProductForm extends Component {
     render() {
         return (
             <form onSubmit={this.addProduct}>
-                <input onChange={this.handleNameChange} type="text" placeholder="name" />
-                <input onChange={this.handlePriceChange} type="text" placeholder="price" />
+                <input onChange={this.handleFieldChange('name')} type="text" placeholder="name" />
+                <input onChange={this.handleFieldChange('price')} type="text" placeholder="price" />
                 <input type="submit" value="Submit" />
             </form>
         )
