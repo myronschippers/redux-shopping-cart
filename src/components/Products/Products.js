@@ -16,23 +16,23 @@ class Products extends Component {
     //     ],
     // }
 
-    addNewProduct = (product) => {
-        console.log(product);
-        // TODO: Switch from using local state to dispatching an action
-        this.props.dispatch({
-            type: 'ADD_NEW_PRODUCT',
-            payload: product,
-        });
-        // this.setState({
-        //     products: [...this.state.products, product],
-        // })
-    }
+    // addNewProduct = (product) => {
+    //     console.log(product);
+    //     // TODO: Switch from using local state to dispatching an action
+    //     this.props.dispatch({
+    //         type: 'ADD_NEW_PRODUCT',
+    //         payload: product,
+    //     });
+    //     // this.setState({
+    //     //     products: [...this.state.products, product],
+    //     // })
+    // }
 
     render() {
         return (
             <div>
                 <h2>Products</h2>
-                <ProductForm addNewProduct={this.addNewProduct} />
+                <ProductForm />
                 <ProductList products={this.props.reduxState.productReducer} />
             </div>
         )
