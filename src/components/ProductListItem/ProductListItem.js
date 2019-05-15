@@ -1,11 +1,18 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import mapReduxStateToProps from '../../modules/mapReduxStateToProps';
 
 class ProductListItem extends Component {
 
     addProductToCart = () => {
         console.log(this.props.product);
         // TODO: Dispatch here
-        
+        this.props.dispatch({
+            type: 'ADD_TO_CART',
+            payload: {
+                ...this.props.product,
+            },
+        });
     }
 
     render() {
@@ -17,4 +24,4 @@ class ProductListItem extends Component {
     }
 }
 
-export default ProductListItem;
+export default connect(mapReduxStateToProps)(ProductListItem);
